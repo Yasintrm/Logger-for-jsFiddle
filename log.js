@@ -10,7 +10,7 @@ var LOGGER = (function() {
                 logger.style.overflow = 'auto';
                 logger.style.border = '1px solid black';
                 doc.body.appendChild(logger);
-                return this;
+                return methods;
             },
             log: function(arg) {
                 div = doc.createElement('div');
