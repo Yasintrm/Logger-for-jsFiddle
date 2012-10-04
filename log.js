@@ -1,27 +1,25 @@
 //LOGGER
-var LOGGER = (function() {
+var LOGGER = (function () {
     var doc = document,
         logger, div, childs, txt, counter = 0,
         style, num, methods = {
-            init: function() {
-                window.onload = function() {
+            init: function () {
+                window.onload = function () {
                     logger = doc.createElement('div');
-                    logger.id = 'logger_' + new Date().valueOf();
                     logger.style.height = '200px';
                     logger.style.overflow = 'auto';
                     logger.style.border = '1px solid gray';
                     doc.body.appendChild(logger);
                 };
-                window.onerror = function(errorMsg, url, line){
-                   methods.log('error: ' + errorMsg + ' line: ' + line, true, true);
+                window.onerror = function (errorMsg, url, line) {
+                    methods.log('error: ' + errorMsg + ' line: ' + line, true, true);
                 };
                 return this;
             },
-            err : function(arg, line){
-                 return this.log('error: ' + arg + ' line: ' + line, true, true);
+            err: function (arg, line) {
+                return this.log('error: ' + arg + ' line: ' + line, true, true);
             },
-            log: function(arg, printToConsole, err) {
-            debugger;
+            log: function (arg, printToConsole, err) {
                 div = doc.createElement('div');
                 style = div.style;
                 style.font = '12px Tahoma';
@@ -44,16 +42,18 @@ var LOGGER = (function() {
                 div.appendChild(num);
                 div.appendChild(txt);
 
-                childs = childs || logger.children;
-                if (childs.length) {
-                    logger.insertBefore(div, childs[0]);
+                if (logger) {
+
+                    childs = childs || logger.children;
+                    if (childs.length) {
+                        logger.insertBefore(div, childs[0]);
+                    } else {
+                        logger.appendChild(div);
+                    }
                 }
-                else {
-                    logger.appendChild(div);
-                }
-                
-                if(printToConsole) {
-                   console.log(arg);
+
+                if (printToConsole) {
+                    console.log(arg);
                 }
             }
         };
