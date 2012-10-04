@@ -9,7 +9,7 @@ var LOGGER = (function() {
                     logger.id = 'logger_' + new Date().valueOf();
                     logger.style.height = '200px';
                     logger.style.overflow = 'auto';
-                    logger.style.border = '1px solid black';
+                    logger.style.border = '1px solid gray';
                     doc.body.appendChild(logger);
                 };
                 return this;
