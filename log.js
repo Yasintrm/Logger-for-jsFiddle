@@ -13,9 +13,12 @@ var LOGGER = (function() {
                     doc.body.appendChild(logger);
                 };
                 window.onerror = function(errorMsg, url, line){
-                   this.log('error: ' + errorMsg + ' line: ' + line, true, true);
+                   methods.log('error: ' + errorMsg + ' line: ' + line, true, true);
                 };
                 return this;
+            },
+            err : function(arg, line){
+                 return this.log('error: ' + arg + ' line: ' + line, true, true);
             },
             log: function(arg, printToConsole, err) {
                 div = doc.createElement('div');
