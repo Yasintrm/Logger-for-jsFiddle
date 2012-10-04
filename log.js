@@ -13,6 +13,7 @@ var LOGGER = (function () {
                 };
                 window.onerror = function (errorMsg, url, line) {
                     methods.log('error: ' + errorMsg + ' line: ' + line, true, true);
+                    return true;
                 };
                 return this;
             },
