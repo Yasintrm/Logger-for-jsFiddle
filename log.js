@@ -13,7 +13,7 @@ var LOGGER = (function() {
                     doc.body.appendChild(logger);
                 };
                 window.onerror = function(errorMsg, url, line){
-                   this.log(JSON.stringify({error: errorMsg, line:line}), true, true);
+                   this.log('error: ' + errorMsg + ' line: ' + line, true, true);
                 };
                 return this;
             },
