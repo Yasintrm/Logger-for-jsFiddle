@@ -21,6 +21,7 @@ var LOGGER = (function() {
                  return this.log('error: ' + arg + ' line: ' + line, true, true);
             },
             log: function(arg, printToConsole, err) {
+            debugger;
                 div = doc.createElement('div');
                 style = div.style;
                 style.font = '12px Tahoma';
