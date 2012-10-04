@@ -52,5 +52,4 @@ var LOGGER = (function() {
         };
 
     return methods;
-
-}().init());​
+}().init());
