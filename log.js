@@ -49,7 +49,7 @@ var LOGGER = (function() {
                 }
                 
                 if(printToConsole) {
-                	console.log(arg);
+                   console.log(arg);
                 }
             }
         };
