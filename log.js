@@ -1,5 +1,5 @@
 //LOGGER
-var log = (function() {
+var LOG = (function() {
     var doc = document,
         logger, div, childs, txt, counter = 0,
         divStyle, num, methods = {
@@ -51,7 +51,3 @@ var log = (function() {
     return methods;
 
 }());
-log.init();
-for (i = 0; i < 100; i++) {
-    log.log('cem');
-}​
