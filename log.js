@@ -1,5 +1,5 @@
 //LOGGER
-var LOG = (function() {
+var LOGGER = (function() {
     var doc = document,
         logger, div, childs, txt, counter = 0,
         divStyle, num, methods = {
