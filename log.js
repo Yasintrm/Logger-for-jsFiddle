@@ -2,7 +2,7 @@
 var LOGGER = (function() {
     var doc = document,
         logger, div, childs, txt, counter = 0,
-        divStyle, num, methods = {
+        style, num, methods = {
             init: function() {
                 window.onload = function() {
                     logger = doc.createElement('div');
@@ -12,11 +12,21 @@ var LOGGER = (function() {
                     logger.style.border = '1px solid gray';
                     doc.body.appendChild(logger);
                 };
+                window.onerror = function(errorMsg, url, line){
+                   this.log(JSON.stringify({error: errorMsg, line:line}), true, true);
+                };
                 return this;
             },
-            log: function(arg) {
+            log: function(arg, printToConsole, err) {
                 div = doc.createElement('div');
-                div.className = 'log';
+                style = div.style;
+                style.font = '12px Tahoma';
+                style.fontSize = '12px';
+                style.borderRadius = '3px';
+                style.border = '1px solid #BCE3DE';
+                style.padding = '4px';
+                style.margin = '4px';
+                style.backgroundColor = err ? 'red' : (counter % 2 ? '#C9C5E3' : '#AAA2DE');
 
                 num = doc.createElement('span');
                 num.className = 'num';
@@ -29,16 +39,6 @@ var LOGGER = (function() {
 
                 div.appendChild(num);
                 div.appendChild(txt);
-                divStyle = div.style;
-                divStyle.fontFamily = 'Tahoma';
-                divStyle.fontSize = '12px';
-                divStyle.borderRadius = '3px';
-                divStyle.borderWidth = '1px';
-                divStyle.borderStyle = 'solid';
-                divStyle.borderColor = '#BCE3DE';
-                divStyle.padding = '4px';
-                divStyle.margin = '4px';
-                divStyle.backgroundColor = counter % 2 ? '#C9C5E3' : '#AAA2DE';
 
                 childs = childs || logger.children;
                 if (childs.length) {
@@ -47,7 +47,10 @@ var LOGGER = (function() {
                 else {
                     logger.appendChild(div);
                 }
-
+                
+                if(printToConsole) {
+                	console.log(arg);
+                }
             }
         };
 
