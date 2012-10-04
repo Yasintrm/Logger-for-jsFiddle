@@ -4,13 +4,17 @@ var LOGGER = (function() {
         logger, div, childs, txt, counter = 0,
         divStyle, num, methods = {
             init: function() {
+            window.onload = function(){
                 logger = doc.createElement('div');
                 logger.id = 'logger_' + new Date().valueOf();
                 logger.style.height = '200px';
                 logger.style.overflow = 'auto';
                 logger.style.border = '1px solid black';
                 doc.body.appendChild(logger);
-                return this;
+                                return methods;
+                };
+                
+
             },
             log: function(arg) {
                 div = doc.createElement('div');
