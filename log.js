@@ -61,3 +61,4 @@ var LOGGER = (function () {
 
     return methods;
 }().init());
+var L = LOGGER.log;
